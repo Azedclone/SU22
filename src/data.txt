@@ -1,3 +1,4 @@
 DOC 1|Trang|Student|3
-DOC 2|Chang|Student|2
 DOC 3|Long|Student|1
+DOC 4|Da|Student|5
+DOC 2|Trang|Sinhvien|4

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         //Declare variables and objects
         Display display = new Display();
         int choice;
@@ -36,10 +36,10 @@ public class Main {
                     doctorManager.updateDoctor(listDoctor);
                     break;
                 case 3: //Delete doctor
-//                    doctorManager.deleteDoctor(listDoctor);
+                    doctorManager.deleteDoctor(listDoctor);
                     break;
                 case 4: //Search doctor
-//                    doctorManager.searchDoctor(listDoctor);
+                    doctorManager.searchDoctor(listDoctor);
                     break;
                 case 5: //Exit program
                     System.exit(0);
