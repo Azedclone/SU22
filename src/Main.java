@@ -20,11 +20,10 @@ public class Main {
         DoctorManager doctorManager = new DoctorManager();
         ArrayList<Doctor> listDoctor = new ArrayList<>();
 
-        //1. Display menu
-        display.displayMenu();
-
-        //2. Promt user to choose function from 1->5
-        do {
+        while (true) {
+            //1. Display menu
+            display.displayMenu();
+            //2. Promt user to choose function from 1->5
             choice = getData.getInt("Choose function from 1->5: ", 1, 5);
 
             //3. Perform function user have chose
@@ -44,6 +43,6 @@ public class Main {
                 case 5: //Exit program
                     System.exit(0);
             }
-        } while (choice > 0 && choice < 6);
+        }
     }
 }
