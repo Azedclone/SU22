@@ -3,3 +3,5 @@ DOC 3|Long|Student|1
 DOC 4|Da|Student|5
 DOC 2|Trang|Sinhvien|4
 DOC 7|Viet|Thanglon|2
+DOC 8|DA|Student|4
+DOC 6|Tu|Spec|3

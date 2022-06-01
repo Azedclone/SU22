@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         //Declare variables and objects
         Display display = new Display();
         int choice;
