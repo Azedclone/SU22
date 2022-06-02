@@ -1,21 +1,24 @@
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Azedclone
  */
-public class Doctor {
+public class Doctor implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String code;
     private String name;
     private String specialization;
     private int availability;
 
-    //Constructor
     public Doctor() {
     }
 
@@ -26,7 +29,6 @@ public class Doctor {
         this.availability = availability;
     }
 
-    //Getters
     public String getCode() {
         return code;
     }
@@ -43,7 +45,6 @@ public class Doctor {
         return availability;
     }
 
-    //Setters 
     public void setCode(String code) {
         this.code = code;
     }
@@ -59,4 +60,5 @@ public class Doctor {
     public void setAvailability(int availability) {
         this.availability = availability;
     }
+
 }

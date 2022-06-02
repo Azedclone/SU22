@@ -45,7 +45,7 @@ public class GetData {
         return num;
     }
 
-    String getString(String msg, String regex, String format) {
+    String getString(String msg, String regex, String requirement) {
         String input;
 
         //Only return when user enter valid input
@@ -61,7 +61,8 @@ public class GetData {
                 if (regex.isEmpty() || input.matches(regex)) {
                     break;
                 } else {
-                    System.out.println("Not match");
+                    System.out.println("Not match requirement!");
+                    System.out.println(requirement);
                 }
             }
         }
@@ -69,7 +70,7 @@ public class GetData {
         return input;
     }
 
-    String getString(String msg, String regex, String format, String origin) {
+    String getString(String msg, String regex, String requirement, String origin) {
         String input;
 
         while (true) {
@@ -84,7 +85,7 @@ public class GetData {
                     break;
                 } else {
                     System.out.println("Not match");
-                    System.out.println("Must be : " + format);
+                    System.out.println(requirement);
                 }
             }
         }
