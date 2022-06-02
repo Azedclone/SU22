@@ -41,7 +41,7 @@ public class DoctorManager {
                 ioFile.loadDataToList(listDoctor);
             }
 
-            String code = getData.getString("Enter code: ", "^\\w+$", "Must contain only number and letter");
+            String code = getData.getString("Enter code: ", "^\\w*\\s{0,1}\\w*$", "Must contain only number and letter");
 
             int index = findIndex(code, listDoctor);
             //Continue only if code does not existed
@@ -69,7 +69,7 @@ public class DoctorManager {
                 ioFile.loadDataToList(listDoctor);
             }
 
-            String code = getData.getString("Enter code: ", "^\\w+$", "Must contain only number and letter");
+            String code = getData.getString("Enter code: ", "^\\w*\\s{0,1}\\w*$", "Must contain only number and letter");
             int index = findIndex(code, listDoctor);
 
             //Continue only if code existed
@@ -94,12 +94,14 @@ public class DoctorManager {
                 ioFile.loadDataToList(listDoctor);
             }
 
-            String code = getData.getString("Enter code: ", "^\\w+$", "Must contain only number and letter");
+            String code = getData.getString("Enter code: ", "^\\w*\\s{0,1}\\w*$", "Must contain only number and letter");
             int index = findIndex(code, listDoctor);
 
             if (index != -1) {
                 listDoctor.remove(index);
                 ioFile.saveDataToFile(listDoctor);
+            } else {
+                System.out.println("code does not exist doctor!");
             }
         } catch (Exception e) {
             System.out.println("Error in deleteDoctor!");
