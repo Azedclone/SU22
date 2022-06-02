@@ -129,7 +129,7 @@ public class DoctorManager {
                 } else {
                     if (nameSearch.matches("^[a-zA-Z\\s]+$")) {
                         for (Doctor doctor : listDoctor) {
-                            if (doctor.getName().equals(nameSearch)) {
+                            if (doctor.toString().contains(nameSearch)) {
                                 listResult.add(doctor);
                             }
                         }

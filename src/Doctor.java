@@ -61,4 +61,10 @@ public class Doctor implements Serializable {
         this.availability = availability;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" + "code=" + code + ", name=" + name + ", specialization=" + specialization + ", availability=" + availability + '}';
+    }
+
+    
 }
