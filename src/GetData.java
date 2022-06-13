@@ -14,114 +14,93 @@ public class GetData {
 
     Scanner sc = new Scanner(System.in);
 
-    int getInt(String msg, int min, int max) {
+    int getChoice(String msg, int min, int max) {
         String input;
         int num;
 
-        //Only return when user enter valid input
+        //Loop until user enter valid input
         while (true) {
             System.out.print(msg);
             input = sc.nextLine();
 
-            //Check whether input is empty
+            //Check input is empty or not
             if (input.isEmpty()) {
-                System.out.println("Could not be empty!");
+                System.out.println("Input couldn't be empty");
             } else {
                 try {
                     num = Integer.parseInt(input);
 
-                    //Check input must in range
+                    //Check input in range (min, max)
                     if (num >= min && num <= max) {
-                        break;
+                        return num;
                     } else {
-                        System.out.println("Must be in range " + min + "->" + max);
+                        System.out.println("Input must in range (" + min + ", " + max + ")");
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Must be an integer");
+                    System.out.println("Input must be an integer!");
                 }
             }
         }
-
-        return num;
     }
 
-    String getString(String msg, String regex, String requirement) {
+    String getAccountNumber(String msg, String errorMsg) {
         String input;
 
-        //Only return when user enter valid input
         while (true) {
             System.out.print(msg);
             input = sc.nextLine();
 
-            //Check whether user is empty
+            //Check input is empty or not
             if (input.isEmpty()) {
-                System.out.println("Could not be empty!");
+                System.out.println(errorMsg);
             } else {
-                //Check input must match regular expression
-                if (regex.isEmpty() || input.matches(regex)) {
-                    break;
+                //Check input matches regex
+                if (input.matches("^\\d{10}$")) {
+                    return input;
                 } else {
-                    System.out.println("Not match requirement!");
-                    System.out.println(requirement);
+                    System.out.println(errorMsg);
                 }
             }
         }
-
-        return input;
     }
-
-    String getString(String msg, String regex, String requirement, String origin) {
+    
+    String getPassword(String msg, String errorMsg) {
         String input;
 
         while (true) {
             System.out.print(msg);
             input = sc.nextLine();
 
-            //If empty then won't change anything
+            //Check input is empty or not
             if (input.isEmpty()) {
-                input = origin;
+                System.out.println(errorMsg);
             } else {
-                if (regex.isEmpty() || input.matches(regex)) {
-                    break;
+                //Check input matches regex
+                if (input.matches("^\\w{8,31}$")) {
+                    return input;
                 } else {
-                    System.out.println("Not match");
-                    System.out.println(requirement);
+                    System.out.println(errorMsg);
                 }
             }
         }
-
-        return input;
     }
-
-    int getInt(String msg, int min, int max, int origin) {
+    
+    String getCaptcha(String captcha, String msg, String errorMsg) {
         String input;
-        int num;
-
-        //Only return when user enter valid input
+        
         while (true) {
             System.out.print(msg);
             input = sc.nextLine();
-
-            //Check whether input is empty
+            
+            //Check input is empty or not
             if (input.isEmpty()) {
-                num = origin;
-                break;
+                System.out.println(errorMsg);
             } else {
-                try {
-                    num = Integer.parseInt(input);
-
-                    //Check input must in range
-                    if (num >= min && num <= max) {
-                        break;
-                    } else {
-                        System.out.println("Must be in range " + min + "->" + max);
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Must be an integer");
+                //Check captcha is correct or not
+                if (input.matches(captcha)) {
+                    
                 }
             }
         }
-
-        return num;
     }
 }
