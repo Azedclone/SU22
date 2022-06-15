@@ -30,7 +30,7 @@ public class Main {
                     eBank.useVietnamese();
                     break;
                 case 2: //Interface use English
-//                    eBank.useEnglish();
+                    eBank.useEnglish();
                     break;
                 case 3: //Exit program
                     System.exit(0);

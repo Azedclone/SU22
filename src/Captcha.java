@@ -1,5 +1,6 @@
 
 import java.util.Random;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +11,9 @@ import java.util.Random;
  *
  * @author Azedclone
  */
-public class GenCaptcha {
+public class Captcha {
+
+    Scanner sc = new Scanner(System.in);
 
     String genCaptcha() {
         char data[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -28,5 +31,22 @@ public class GenCaptcha {
         }
 
         return captcha;
+    }
+
+    void handleCaptcha(String msg, String inputMsg, String errorMsg) {
+        String captcha = genCaptcha();
+        String input;
+        //Loop until user enter correct captcha
+        while (true) {
+            System.out.println(msg + captcha);
+            System.out.print(inputMsg);
+
+            input = sc.nextLine();
+            if (!input.matches(captcha)) {
+                System.out.println(errorMsg);
+            } else {
+                break;
+            }
+        }
     }
 }

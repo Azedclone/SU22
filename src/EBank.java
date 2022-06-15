@@ -1,4 +1,6 @@
 
+import Account.*;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -12,21 +14,44 @@ import java.util.ResourceBundle;
  * @author Azedclone
  */
 public class EBank {
-    
+
+    ListAccount listAccount = new ListAccount();
+    ArrayList<Account> database = listAccount.listAccount();
+
     GetData getData = new GetData();
-    GenCaptcha genCaptcha = new GenCaptcha();
-    
+    Captcha captcha = new Captcha();
+
     void useVietnamese() {
-        String captcha = genCaptcha.genCaptcha();
         Locale localeVi = new Locale("vi", "VN");
-        login(localeVi, captcha);
+        login(localeVi);
     }
-    
-    private void login(Locale locale, String captcha) {
+
+    void useEnglish() {
+        Locale localeEn = new Locale("en", "US");
+        login(localeEn);
+    }
+
+    private void login(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
-        
+
         String accountNumber = getData.getAccountNumber(bundle.getString("accountNumber"), bundle.getString("invalidAccountNumber"));
         String password = getData.getPassword(bundle.getString("password"), bundle.getString("invalidPassword"));
-        String captchaInput = getData.getCaptcha(captcha, bundle.getString("inputCaptcha"), bundle.getString("incorrectCaptcha"));
+        captcha.handleCaptcha(bundle.getString("captcha"), bundle.getString("inputCaptcha"), bundle.getString("incorrectCaptcha"));
+
+        Account account = new Account(accountNumber, password);
+        boolean isExist = false;
+
+        for (Account acc : database) {
+            if (acc.getAccounNumber().equals(account.getAccounNumber()) && acc.getPassword().equals(account.getPassword())) {
+                isExist = true;
+            }
+        }
+
+        if (isExist) {
+            System.out.println(bundle.getString("loginSuccess"));
+        } else {
+            System.out.println(bundle.getString("loginFail"));
+        }
     }
+
 }

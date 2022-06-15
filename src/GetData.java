@@ -50,20 +50,15 @@ public class GetData {
             System.out.print(msg);
             input = sc.nextLine();
 
-            //Check input is empty or not
-            if (input.isEmpty()) {
+            //Check input must matches require
+            if (!input.matches("^\\d{10}$")) {
                 System.out.println(errorMsg);
             } else {
-                //Check input matches regex
-                if (input.matches("^\\d{10}$")) {
-                    return input;
-                } else {
-                    System.out.println(errorMsg);
-                }
+                return input;
             }
         }
     }
-    
+
     String getPassword(String msg, String errorMsg) {
         String input;
 
@@ -71,36 +66,13 @@ public class GetData {
             System.out.print(msg);
             input = sc.nextLine();
 
-            //Check input is empty or not
-            if (input.isEmpty()) {
+            //Check input must matches require
+            if (!input.matches("^\\w{8,31}$")) {
                 System.out.println(errorMsg);
             } else {
-                //Check input matches regex
-                if (input.matches("^\\w{8,31}$")) {
-                    return input;
-                } else {
-                    System.out.println(errorMsg);
-                }
+                return input;
             }
         }
     }
-    
-    String getCaptcha(String captcha, String msg, String errorMsg) {
-        String input;
-        
-        while (true) {
-            System.out.print(msg);
-            input = sc.nextLine();
-            
-            //Check input is empty or not
-            if (input.isEmpty()) {
-                System.out.println(errorMsg);
-            } else {
-                //Check captcha is correct or not
-                if (input.matches(captcha)) {
-                    
-                }
-            }
-        }
-    }
+
 }
