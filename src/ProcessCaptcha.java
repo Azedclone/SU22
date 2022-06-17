@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Azedclone
  */
-public class Captcha {
+public class ProcessCaptcha {
 
     Scanner sc = new Scanner(System.in);
 

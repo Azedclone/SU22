@@ -1,5 +1,4 @@
 
-import Account.*;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -15,19 +14,18 @@ import java.util.ResourceBundle;
  */
 public class EBank {
 
-    ListAccount listAccount = new ListAccount();
-    ArrayList<Account> database = listAccount.listAccount();
-
+    AccountDatabase accountDatabase = new AccountDatabase();
+    ArrayList<Account> data = accountDatabase.getAccountDatabase();
     GetData getData = new GetData();
-    Captcha captcha = new Captcha();
+    ProcessCaptcha processCaptcha = new ProcessCaptcha();
 
     void useVietnamese() {
-        Locale localeVi = new Locale("vi", "VN");
+        Locale localeVi = new Locale("vi");
         login(localeVi);
     }
 
     void useEnglish() {
-        Locale localeEn = new Locale("en", "US");
+        Locale localeEn = new Locale("en");
         login(localeEn);
     }
 
@@ -36,13 +34,13 @@ public class EBank {
 
         String accountNumber = getData.getAccountNumber(bundle.getString("accountNumber"), bundle.getString("invalidAccountNumber"));
         String password = getData.getPassword(bundle.getString("password"), bundle.getString("invalidPassword"));
-        captcha.handleCaptcha(bundle.getString("captcha"), bundle.getString("inputCaptcha"), bundle.getString("incorrectCaptcha"));
+        processCaptcha.handleCaptcha(bundle.getString("captcha"), bundle.getString("inputCaptcha"), bundle.getString("incorrectCaptcha"));
 
         Account account = new Account(accountNumber, password);
         boolean isExist = false;
 
-        for (Account acc : database) {
-            if (acc.getAccounNumber().equals(account.getAccounNumber()) && acc.getPassword().equals(account.getPassword())) {
+        for (Account acc : data) {
+            if (acc.getAccountNumber().equals(account.getAccountNumber()) && acc.getPassword().equals(account.getPassword())) {
                 isExist = true;
             }
         }

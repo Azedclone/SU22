@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Account;
 
 /**
  *
@@ -11,19 +10,19 @@ package Account;
  */
 public class Account {
 
-    private String accounNumber;
+    private String accountNumber;
     private String password;
 
     public Account() {
     }
 
     public Account(String accounNumber, String password) {
-        this.accounNumber = accounNumber;
+        this.accountNumber = accounNumber;
         this.password = password;
     }
 
-    public String getAccounNumber() {
-        return accounNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     public String getPassword() {
@@ -31,7 +30,7 @@ public class Account {
     }
 
     public void setAccounNumber(String accounNumber) {
-        this.accounNumber = accounNumber;
+        this.accountNumber = accounNumber;
     }
 
     public void setPassword(String password) {
